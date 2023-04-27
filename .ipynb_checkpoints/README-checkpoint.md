@@ -180,30 +180,31 @@ The dimensional reduction process was performed using ```PCA()``` function.
 # Identifying Best Number of Clusters
 Before performing the clustering model (in this case K-Means), we need to know the optimal number of clusters beforehand. One of the options is by using the **Elbow Method**
 
-![elbow_method](https://user-images.githubusercontent.com/40890491/233978220-2752b1d9-04e6-4457-94e3-0b1851deb9af.png)
+![elbow_method](https://user-images.githubusercontent.com/40890491/234859458-16aadab1-d9a9-4a8f-b556-c29588fe0a39.png)
 
 Based on the Elbow Graph above, the optimal number of clusters would be 2/3/4 clusters.
 
 # Evaluate Model
 To ensure our Elbow Analysis is correct, we need to evaluate every possible cluster number by calculating the **Silhouette Score**.
 
-![silhouette_score](https://user-images.githubusercontent.com/40890491/233978856-874f2a9f-dd64-4751-b9f6-477cb5684f99.png)
+![silhouette_score](https://user-images.githubusercontent.com/40890491/234859313-a4103905-9130-4dcd-9167-8a84ff0f0d34.png)
 
-Based on the width of every cluster and the average silhouette score, it can be seen that dividing the data into every option (k = 2-6) is a good option. However, based on the silhouette score that calculates the performance of the model, dividing data into **3 clusters** is the most optimal option.
+Based on the width of every cluster and the average silhouette score, it can be seen that dividing the data into every option (k = 2-6) is a good option. However, based on the silhouette score that calculates the performance of the model and the width of every cluster, dividing data into **3 clusters** is the most optimal option
 
 # Fitting Model(K-Means)
 The use of the following code resulting the clustering below.
 ```KMeans(n_clusters=3, init='k-means++', max_iter=300, n_init=10, random_state=42)```
 
-![k-means](https://user-images.githubusercontent.com/40890491/233979512-a190235b-247f-4b7f-b330-4d7db5195eef.png)
+![k-means](https://user-images.githubusercontent.com/40890491/234859799-ddab9b30-5dcd-4605-ad3b-31a2166e4579.png)
 
 # Labels Defition:
 Based on the previous clustering analysis, here are the segmentation for every cluster created:
-1. Label 0: Male (41++ yo) who are from **Wenzhou, Beijing, China,** with an average flight time of **62 hours** and holds a Tier 4 membership
-2. Label 1: Male (44++ yo) who are from **Guangzhou, Beijing, China,** with an average flight time of **38 hours** and holds a Tier 4 membership
-3. Label 2: Male (41++ yo) who are from **Haarlem, Sichuan, China,** with an average flight time of **62 hours** and holds a Tier 4 membership
+1. Label 0: Male (41++ yo) who are from **Guiyang** and departed from **Guizhou Province and China** with an average flight time of **71 hours** and holds a Tier 4 membership
+
+2. Label 1: Male (42++ yo) who are from **Guangzhoushi** and departed from **France and China** with an average flight time of **72 hours** and holds a Tier 4 membership
+
+3. Label 2: Male (44++ yo) who are from **Guiyang** and departed from **Guizhou Province and China** with an average flight time of **24 hours** and holds a Tier 5 membership
 
 # Business Extraction/Recommendation
-Since people from **Beijing, China** are the highest segment of all, the company might be able to apply some bundling promo trips **from/to Beijing, China** to drive more customers.
-
+Since people from **Guiyang, China** are the highest segment of all, the company might be able to apply some bundling promo trips **from/to Beijing, China** to drive more customers.<br>
 Morover, company can target customers with **Tier 4** in their membership to apply some additional discounts or other promos.
